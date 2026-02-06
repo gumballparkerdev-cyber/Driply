@@ -46,21 +46,20 @@ export function CartProvider({ children }) {
   };
 
   // 👇 UPDATED
-  const addToCart = async ({ productId, size, quantity }) => {
-    try {
-      await apiAddToCart({
-        productId,
-        size,
-        quantity,
-      });
-      // refresh cart after successful add
-      await loadCart();
-    } catch (err) {
-      console.error("Add to cart failed:", err);
-      alert(err.message || "Failed to add item to cart");
-    }
-  };
-
+const addToCart = async ({ productId, size, quantity }) => {
+  try {
+    await apiAddToCart({
+      userId,        // ✅ include userId
+      productId,
+      size,
+      quantity,
+    });
+    await loadCart();
+  } catch (err) {
+    console.error("Add to cart failed:", err);
+    alert(err.message || "Failed to add item to cart");
+  }
+};
 
 
   return (
