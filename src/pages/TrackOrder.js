@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { API_URL } from "../api";
 import "../CSS/TrackOrder.css";
 
 function TrackOrder() {
@@ -16,7 +17,7 @@ function TrackOrder() {
         setOrder(null);
 
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${orderId}`);
+            const res = await fetch(`${API_URL}/orders/${orderId}`);
             if (!res.ok) {
                 throw new Error("Order not found");
             }

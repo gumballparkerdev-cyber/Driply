@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { API_URL } from "../api";
 import { useAuth } from "../context/AuthContext";
 import "../CSS/Orders.css";
 
@@ -15,7 +16,7 @@ function Orders() {
 
                 if (user && token) {
                     // 1. Logged In: Fetch from API
-                    const res = await fetch(`http://localhost:5000/api/auth/orders/${user.id}`, {
+                    const res = await fetch(`${API_URL}/auth/orders/${user.id}`, {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                     if (res.ok) fetchedOrders = await res.json();
@@ -27,7 +28,7 @@ function Orders() {
                     if (guestOrderIds.length > 0) {
                         // Fetch details for each ID
                         const promises = guestOrderIds.map(id =>
-                            fetch(`http://localhost:5000/api/orders/${id}`).then(res => res.json())
+                            fetch(`${API_URL}/orders/${id}`).then(res => res.json())
                         );
                         // Filter out any failed requests (e.g. 404s)
                         const results = await Promise.all(promises);
@@ -62,7 +63,7 @@ function Orders() {
         setTrackLoading(true);
 
         try {
-            const res = await fetch(`http://localhost:5000/api/orders/${trackId}`);
+            const res = await fetch(`${API_URL}/orders/${trackId}`);
             if (!res.ok) throw new Error("Order not found");
             const data = await res.json();
             setTrackedOrder(data);
@@ -168,7 +169,7 @@ function Orders() {
                                                 onClick={async () => {
                                                     if (!window.confirm("Confirm you received this order?")) return;
                                                     try {
-                                                        const res = await fetch(`http://localhost:5000/api/auth/orders/${order._id}/confirm`, {
+                                                        const res = await fetch(`${API_URL}/auth/orders/${order._id}/confirm`, {
                                                             method: "PUT",
                                                             headers: { "Content-Type": "application/json" } // Public endpoint or auth? Auth usually.
                                                         });
