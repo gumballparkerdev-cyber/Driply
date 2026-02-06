@@ -6,7 +6,7 @@ export const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/a
 async function handleResponse(res) {
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
-    const err = new Error(data.message || 'Request failed');
+    const err = new Error(data.message || "Request failed");
     err.status = res.status;
     err.payload = data;
     throw err;
@@ -28,13 +28,15 @@ export const getProductById = async (id) => {
 
 /* ---------------- CART ---------------- */
 
+// ✅ Get cart by userId
 export const getCart = async () => {
   const res = await fetch(`${API_URL}/cart/${getUserId()}`);
   return handleResponse(res);
 };
 
+// ✅ Add item to cart
 export const addToCart = async ({ productId, size, quantity }) => {
-  const res = await fetch(`${API_URL}/cart/add`, {
+  const res = await fetch(`${API_URL}/cart`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -44,10 +46,10 @@ export const addToCart = async ({ productId, size, quantity }) => {
       quantity,
     }),
   });
-
   return handleResponse(res);
 };
 
+// ✅ Update item in cart
 export const updateCartItem = async (productId, size, quantity) => {
   const res = await fetch(`${API_URL}/cart/update`, {
     method: "POST",
@@ -59,10 +61,10 @@ export const updateCartItem = async (productId, size, quantity) => {
       quantity,
     }),
   });
-
   return handleResponse(res);
 };
 
+// ✅ Remove item from cart
 export const removeCartItem = async (productId, size) => {
   const res = await fetch(`${API_URL}/cart/remove`, {
     method: "POST",
@@ -73,11 +75,10 @@ export const removeCartItem = async (productId, size) => {
       size,
     }),
   });
-
   return handleResponse(res);
 };
 
-/* ---------------- CHECKOUT (LATER) ---------------- */
+/* ---------------- CHECKOUT ---------------- */
 
 export const checkoutCart = async (items = null) => {
   const res = await fetch(`${API_URL}/checkout`, {
@@ -85,9 +86,8 @@ export const checkoutCart = async (items = null) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       userId: getUserId(),
-      items: items // Optional: passed to backend for selective checkout
+      items, // Optional: selective checkout
     }),
   });
-
   return handleResponse(res);
 };
