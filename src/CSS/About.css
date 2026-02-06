@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fafafa;
+}
+
+/* Hero Section */
+.about-hero {
+  padding: 60px 20px 40px;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.title-light {
+  color: #aaa;
+}
+
+.title-dark {
+  color: #222;
+}
+
+/* Main Content */
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.image-section {
+  position: relative;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.02);
+}
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.mission-box {
+  margin-top: 20px;
+  padding: 30px;
+  background: linear-gradient(135deg, #fff9f0 0%, #ffe8d6 100%);
+  border-radius: 15px;
+  border-left: 4px solid #ff8c42;
+}
+
+.mission-title {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.mission-text {
+  font-size: 1.05rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.mission-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.mission-list li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #555;
+  font-size: 1rem;
+}
+
+.mission-list li:before {
+  content: "•";
+  color: #ff8c42;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: 3px;
+}
+
+/* Why Section */
+.why-section {
+  background: white;
+  padding: 80px 20px;
+}
+
+.why-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+.why-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.why-card {
+  background: #fafafa;
+  padding: 40px 30px;
+  border-radius: 15px;
+  border: 2px solid #f0f0f0;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 140, 66, 0.15);
+  border-color: #ffe8d6;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.card-text {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.closing-text {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+/* Newsletter */
+.newsletter-section {
+  background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 100%);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.newsletter-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.newsletter-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 35px;
+}
+
+.newsletter-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 18px 25px;
+  border: 2px solid #ddd;
+  border-right: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.newsletter-input:focus {
+  border-color: #ff8c42;
+}
+
+.newsletter-btn {
+  padding: 18px 35px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 0 50px 50px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.newsletter-btn:hover {
+  background: #000;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .content-grid {
+    gap: 40px;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-image {
+    max-width: 100%;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .why-title {
+    font-size: 2rem;
+  }
+
+  .newsletter-title {
+    font-size: 2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .newsletter-input,
+  .newsletter-btn {
+    border-radius: 50px;
+    border: 2px solid #ddd;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 40px 15px 30px;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .mission-box {
+    padding: 20px;
+  }
+
+  .why-section {
+    padding: 50px 15px;
+  }
+
+  .newsletter-section {
+    padding: 50px 15px;
+  }
+}

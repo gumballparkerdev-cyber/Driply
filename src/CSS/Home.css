@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-container {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 0;
+  background-color: #fff;
+}
+
+/* Hero Banner */
+.hero-banner {
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
+  margin-top: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hero-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 600px;
+  gap: 0;
+}
+
+.hero-text {
+  padding: 60px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background: #fff;
+}
+
+.hero-subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 50px;
+}
+
+.hero-subtitle:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 2px;
+  background: #333;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0;
+  background: transparent;
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  position: relative;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background: #222;
+  transition: width 0.3s ease;
+}
+
+.hero-btn:hover:after {
+  width: 120px;
+}
+
+.hero-image {
+  position: relative;
+  height: 600px;
+  background: #ffb6c1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Products Section */
+.products-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem !important;
+  /* Matched Hero Title Size */
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 15px;
+  line-height: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+/* Policies Section */
+.policies-section {
+  background: #fafafa;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 80px;
+}
+
+.policies-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.policy-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 30px;
+  border-right: 1px solid #e5e5e5;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.policy-card:last-child {
+  border-right: none;
+}
+
+.policy-card:hover {
+  background: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.policy-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  border: 2px solid #e5e5e5;
+}
+
+.policy-card:hover .policy-icon-wrapper {
+  background: #222;
+  border-color: #222;
+  transform: scale(1.1);
+}
+
+.policy-icon {
+  width: 32px;
+  height: 32px;
+  color: #222;
+  transition: all 0.3s ease;
+}
+
+.policy-card:hover .policy-icon {
+  color: #fff;
+}
+
+.policy-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.policy-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: -0.3px;
+}
+
+.policy-description {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Loading */
+.loading-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .hero-text {
+    padding: 50px 60px;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-image {
+    height: 550px;
+  }
+
+  .policies-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .policy-card {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .policy-card:nth-child(2n) {
+    border-right: none;
+  }
+
+  .policy-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-text {
+    padding: 60px 40px;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-image {
+    height: 500px;
+    order: -1;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    /* Increased from 2.5rem */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    padding: 40px 30px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+    padding-left: 40px;
+  }
+
+  .hero-subtitle:before {
+    width: 30px;
+  }
+
+  .hero-image {
+    height: 400px;
+  }
+
+  .products-section {
+    padding: 60px 20px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .policies-section {
+    margin-top: 60px;
+  }
+
+  .policies-container {
+    grid-template-columns: 1fr;
+  }
+
+  .policy-card {
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 40px 25px;
+  }
+
+  .policy-card:last-child {
+    border-bottom: none;
+  }
+
+  .policy-icon-wrapper {
+    width: 65px;
+    height: 65px;
+  }
+
+  .policy-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    padding: 30px 20px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-btn {
+    font-size: 0.85rem;
+    padding: 14px 0;
+  }
+
+  .hero-image {
+    height: 350px;
+  }
+
+  .products-section {
+    padding: 40px 15px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .policies-section {
+    margin-top: 50px;
+  }
+
+  .policy-card {
+    padding: 35px 20px;
+  }
+
+  .policy-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .policy-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .policy-title {
+    font-size: 1rem;
+  }
+
+  .policy-description {
+    font-size: 0.85rem;
+  }
+}
