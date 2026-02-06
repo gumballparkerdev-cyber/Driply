@@ -80,8 +80,9 @@ export const removeCartItem = async (productId, size) => {
 
 /* ---------------- CHECKOUT ---------------- */
 
+// ✅ Checkout now points to /cart/checkout
 export const checkoutCart = async (items = null) => {
-  const res = await fetch(`${API_URL}/checkout`, {
+  const res = await fetch(`${API_URL}/cart/checkout`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
