@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
@@ -83,14 +83,14 @@ function Cart() {
   }, [cart]);
 
   // ✅ Hooks always at the top
-  const isSelected = (productId, size) => selectedItems.includes(`${productId}-${size}`);
+  const isSelected = useCallback((productId, size) => selectedItems.includes(`${productId}-${size}`), [selectedItems]);
 
   const selectedTotal = useMemo(() => {
     return localCart
       .filter(item => isSelected(item.product._id, item.size))
       .reduce((total, item) => total + item.product.price * item.quantity, 0)
       .toFixed(2);
-  }, [localCart, selectedItems]);
+  }, [localCart, isSelected]);
 
   const getSelectedItems = () => localCart.filter(item => isSelected(item.product._id, item.size));
 

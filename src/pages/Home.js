@@ -6,7 +6,6 @@ import Modelimg from "../Images/Model-img.jpg";
 import "../CSS/Home.css";
 
 function Home() {
-  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
@@ -14,7 +13,6 @@ function Home() {
   useEffect(() => {
     getProducts()
       .then((data) => {
-        setProducts(data);
         
         // Shuffle and pick random products
         const shuffled = [...data].sort(() => Math.random() - 0.5);

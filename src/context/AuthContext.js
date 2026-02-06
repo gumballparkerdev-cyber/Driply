@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { getUserId } from "../utils/userId"; // Fallback for guest cart
 
 const AuthContext = createContext();
 

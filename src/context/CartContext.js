@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
 import {
   getCart,
   addToCart as apiAddToCart,
@@ -15,11 +15,7 @@ export function CartProvider({ children }) {
 
   const userId = getUserId();
 
-  useEffect(() => {
-    loadCart();
-  }, [userId]); // ✅ Reload cart when userId changes (Login/Logout)
-
-  const loadCart = async () => {
+  const loadCart = useCallback(async () => {
     try {
       const data = await getCart(userId);
       setCart(data.items || []);
@@ -28,7 +24,11 @@ export function CartProvider({ children }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId]);
+
+  useEffect(() => {
+    loadCart();
+  }, [loadCart]);
 
   const updateItem = async (productId, size, quantity) => {
     try {
